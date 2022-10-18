@@ -1,0 +1,30 @@
+[package]
+name = "update_diesel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diesel = { version = "2.0.0", features = ["postgres","numeric","chrono","serde_json"] }
+diesel-async = {git="https://github.com/weiznich/diesel_async",features=["postgres","deadpool"]}
+serde_repr = "0.1"
+base64 = "0.13.0"
+bigdecimal = {version="0.3.0",features=["serde"]}
+chrono = {version="0.4",features=["serde"]}
+dotenv = "0.15.0"
+serde = {version="1", features=["derive"]}
+serde_json = "1"
+serde_derive = "1"
+sha2 = "0.10.2"
+actix-cors = "0.6.1"
+futures = "0.3.21"
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+hex = "0.4.3"
+rust-argon2 = "1.0"
+rand = "0.8.5"
+once_cell = "1.13.0"
+tokio-stream = {version="0.1.10", features=["fs"]}
+async-trait = "0.1.57"
+byteorder = "1.4.3"
