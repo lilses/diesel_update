@@ -85,19 +85,29 @@ async fn main() -> Result<(),std::io::Error>{
 
     let mut conn = pool.get().await.unwrap();
 
-    let table_1 = RunQueryDsl::get_results::<QTable1>(
+    let table_1_res = RunQueryDsl::get_results::<QTable1>(
         schema::table_1::dsl::table_1.filter(schema::table_1::dsl::confirm1.eq(false)),
         &mut conn,
     )
         .await
         .unwrap();
 
-    let table_2 = RunQueryDsl::get_results::<QTable1>(
+    let table_2_res = RunQueryDsl::get_results::<QTable1>(
         schema::table_1::dsl::table_1.filter(schema::table_1::dsl::confirm1.eq(false)),
         &mut conn,
     )
         .await
         .unwrap();
+
+
+    // also does not compile
+    let upd = update_confirm(
+        schema::table_1::table,
+        schema::table_1::dsl::id,
+        schema::table_1::dsl::confirm1,
+        1,
+        &mut conn
+    ).await;
 
 
 
